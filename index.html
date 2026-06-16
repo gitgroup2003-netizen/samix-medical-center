@@ -364,6 +364,7 @@ section { padding: 5.5rem 5%; }
   content:''; position:absolute; bottom:0; left:0; right:0; height:0;
   background: linear-gradient(0deg,rgba(13,148,136,0.08),transparent);
   transition: height 0.3s;
+  pointer-events: none;
 }
 .service-card:hover::after { height:100%; }
 .service-card:hover { border-color:rgba(13,148,136,0.4); transform:translateY(-3px); }
@@ -377,6 +378,44 @@ section { padding: 5.5rem 5%; }
 }
 .service-title { font-family:'Playfair Display',serif; font-size:1.08rem; font-weight:700; margin-bottom:0.6rem; }
 .service-desc  { font-size:0.84rem; color:var(--slate-light); line-height:1.65; }
+
+.service-toggle-btn {
+  margin-top: 1.25rem;
+  background: rgba(13,148,136,0.12);
+  border: 1px solid rgba(13,148,136,0.35);
+  color: var(--teal-light);
+  padding: 0.45rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.8rem;
+  font-weight: 600;
+  font-family: 'Inter', sans-serif;
+  transition: all 0.2s;
+  display: inline-flex; align-items: center; gap: 0.4rem;
+}
+.service-toggle-btn:hover {
+  background: rgba(13,148,136,0.22);
+  border-color: rgba(13,148,136,0.6);
+}
+.service-details {
+  display: none;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(13,148,136,0.18);
+  color: var(--slate-light);
+  font-size: 0.82rem;
+  line-height: 1.6;
+}
+.service-details strong {
+  color: var(--teal-light);
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.service-details ul { list-style: none; display: flex; flex-direction: column; gap: 0.3rem; }
+.service-details li::before { content: "▸ "; color: var(--teal); }
 
 /* ── TEAM ── */
 .team-grid {
@@ -690,12 +729,12 @@ footer {
   <a href="#connect"  onclick="closeMobileMenu()">Connect</a>
   <a href="#contact"  onclick="closeMobileMenu()">Book Appointment</a>
 </div>
-
+s
 <!-- NAV -->
 <nav id="mainNav">
   <a href="#" class="nav-logo">
     <div class="logo-mark"></div>
-    <span class="logo-text">SAMIX <span>MEDICAL CENTER</span></span>
+    <span class="logo-text"><font size="7">SAMIX <span>MEDICAL CENTER</font size></span></span>
   </a>
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
@@ -876,6 +915,17 @@ footer {
       </div>
       <div class="service-title">General Practice</div>
       <div class="service-desc">Routine consultations, health screenings, chronic disease management, and preventive care for patients of all ages.</div>
+      <button class="service-toggle-btn" onclick="toggleServiceDetails(this)">View Details ↓</button>
+      <div class="service-details">
+        <strong>Services include:</strong>
+        <ul>
+          <li>Annual health checkups</li>
+          <li>Blood pressure monitoring</li>
+          <li>Vaccination programs</li>
+          <li>Chronic disease management</li>
+          <li>Health counseling</li>
+        </ul>
+      </div>
     </div>
     <div class="service-card">
       <div class="service-icon">
@@ -883,6 +933,17 @@ footer {
       </div>
       <div class="service-title">Laboratory Services</div>
       <div class="service-desc">Accurate and rapid diagnostic testing, blood work, pathology, and specimen analysis with fast turnaround times.</div>
+      <button class="service-toggle-btn" onclick="toggleServiceDetails(this)">View Details ↓</button>
+      <div class="service-details">
+        <strong>Tests available:</strong>
+        <ul>
+          <li>Complete blood count</li>
+          <li>Biochemistry panels</li>
+          <li>Urinalysis</li>
+          <li>Microbiology</li>
+          <li>Same-day results</li>
+        </ul>
+      </div>
     </div>
     <div class="service-card">
       <div class="service-icon">
@@ -890,6 +951,17 @@ footer {
       </div>
       <div class="service-title">Emergency Care</div>
       <div class="service-desc">Round-the-clock emergency response for acute conditions, trauma, and urgent medical situations requiring immediate attention.</div>
+      <button class="service-toggle-btn" onclick="toggleServiceDetails(this)">View Details ↓</button>
+      <div class="service-details">
+        <strong>24/7 availability:</strong>
+        <ul>
+          <li>Emergency triage</li>
+          <li>Acute care treatment</li>
+          <li>Trauma management</li>
+          <li>Stabilization services</li>
+          <li>Ambulance coordination</li>
+        </ul>
+      </div>
     </div>
     <div class="service-card">
       <div class="service-icon">
@@ -897,6 +969,17 @@ footer {
       </div>
       <div class="service-title">Maternal & Child Health</div>
       <div class="service-desc">Antenatal care, safe deliveries, postnatal support, immunisation, and paediatric wellness for mother and child.</div>
+      <button class="service-toggle-btn" onclick="toggleServiceDetails(this)">View Details ↓</button>
+      <div class="service-details">
+        <strong>Complete care:</strong>
+        <ul>
+          <li>Pregnancy monitoring</li>
+          <li>Delivery services</li>
+          <li>Postpartum care</li>
+          <li>Child vaccinations</li>
+          <li>Pediatric checkups</li>
+        </ul>
+      </div>
     </div>
     <div class="service-card">
       <div class="service-icon">
@@ -904,6 +987,17 @@ footer {
       </div>
       <div class="service-title">Cardiology</div>
       <div class="service-desc">ECG, echocardiography, blood pressure management, and specialist consultations for heart health and cardiovascular conditions.</div>
+      <button class="service-toggle-btn" onclick="toggleServiceDetails(this)">View Details ↓</button>
+      <div class="service-details">
+        <strong>Diagnostic services:</strong>
+        <ul>
+          <li>ECG &amp; EEG</li>
+          <li>Echocardiography</li>
+          <li>Stress testing</li>
+          <li>Blood pressure monitoring</li>
+          <li>Cardiac consultations</li>
+        </ul>
+      </div>
     </div>
     <div class="service-card">
       <div class="service-icon">
@@ -911,6 +1005,54 @@ footer {
       </div>
       <div class="service-title">Pharmacy Services</div>
       <div class="service-desc">On-site dispensing, prescription fulfilment, medication counselling, and a curated range of quality pharmaceutical products.</div>
+      <button class="service-toggle-btn" onclick="toggleServiceDetails(this)">View Details ↓</button>
+      <div class="service-details">
+        <strong>Full pharmacy support:</strong>
+        <ul>
+          <li>Prescription dispensing</li>
+          <li>Drug counseling</li>
+          <li>Generic alternatives</li>
+          <li>Over-the-counter meds</li>
+          <li>Medicine refills</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Back to School Checkup -->
+    <div class="service-card" style="grid-column:1/-1; border-color:rgba(245,158,11,0.3);">
+      <div style="display:flex; align-items:flex-start; gap:1.5rem; flex-wrap:wrap;">
+        <div style="flex:1; min-width:220px;">
+          <div style="display:inline-flex; align-items:center; gap:0.5rem; background:rgba(245,158,11,0.12); border:1px solid rgba(245,158,11,0.35); color:var(--amber); font-size:0.72rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; padding:0.3rem 0.75rem; border-radius:20px; margin-bottom:1rem;">
+            🎒 Now Available · Back to School
+          </div>
+          <div class="service-icon" style="background:rgba(245,158,11,0.1);">
+            <svg width="24" height="24" fill="none" stroke="var(--amber)" stroke-width="2" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+          </div>
+          <div class="service-title" style="font-size:1.2rem; margin-bottom:0.6rem;">Back to School Health Checkup</div>
+          <div class="service-desc" style="max-width:560px;">Comprehensive health screening for children heading back to school — or already in school. We ensure every child is fit, vaccinated, and ready to learn, whether you are enrolling a new pupil or keeping a current student healthy all term.</div>
+          <button class="service-toggle-btn" style="background:rgba(245,158,11,0.12); border-color:rgba(245,158,11,0.4); color:var(--amber);" onclick="toggleServiceDetails(this)">View Details ↓</button>
+          <div class="service-details">
+            <strong>What is included:</strong>
+            <ul>
+              <li>Full physical examination &amp; growth assessment</li>
+              <li>Vision &amp; hearing screening</li>
+              <li>Immunisation review &amp; catch-up vaccines</li>
+              <li>Dental health referral check</li>
+              <li>Nutritional &amp; mental wellness assessment</li>
+              <li>School medical fitness certificate</li>
+              <li>Deworming &amp; vitamin supplementation</li>
+            </ul>
+            <div style="margin-top:0.85rem; padding:0.75rem 1rem; background:rgba(245,158,11,0.07); border-left:3px solid var(--amber); border-radius:0 8px 8px 0;">
+              <span style="color:var(--amber); font-weight:700; font-size:0.8rem;">Available for: </span>
+              <span style="color:var(--slate-light); font-size:0.8rem;">Children already in school AND those starting school for the first time.</span>
+            </div>
+          </div>
+        </div>
+        <div style="flex-shrink:0; align-self:center;">
+          <img src="school-checkup.jpeg" alt="Child at school using hand sanitizer"
+            style="width:200px; height:200px; object-fit:cover; border-radius:16px; border:2px solid rgba(245,158,11,0.3); display:block;">
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -1106,6 +1248,7 @@ footer {
           <option>Maternal & Child Health</option>
           <option>Cardiology</option>
           <option>Pharmacy Services</option>
+          <option>Back to School Checkup</option>
           <option>Other</option>
         </select>
       </div>
@@ -1160,6 +1303,7 @@ footer {
         <li><a href="#services">Maternal Health</a></li>
         <li><a href="#services">Cardiology</a></li>
         <li><a href="#services">Pharmacy</a></li>
+        <li><a href="#services">Back to School Checkup</a></li>
       </ul>
     </div>
     <div class="footer-col">
@@ -1189,6 +1333,14 @@ footer {
 </footer>
 
 <script>
+  // Service card toggle
+  function toggleServiceDetails(btn) {
+    const details = btn.nextElementSibling;
+    const isOpen = details.style.display === 'block';
+    details.style.display = isOpen ? 'none' : 'block';
+    btn.textContent = isOpen ? 'View Details ↓' : 'Hide Details ↑';
+  }
+
   // Mobile menu
   function openMobileMenu()  { document.getElementById('mobileMenu').classList.add('open'); }
   function closeMobileMenu() { document.getElementById('mobileMenu').classList.remove('open'); }
