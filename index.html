@@ -237,17 +237,23 @@ nav {
 
 /* ── HERO LOGO & BRAND NAME ── */
 .hero-logo-wrap {
-  margin-bottom: 1rem;
+  margin-bottom: 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .hero-logo-img {
-  height: 110px;
+  height: 160px;
   width: auto;
   object-fit: contain;
-  filter: drop-shadow(0 4px 12px rgba(0,0,0,0.35));
+  filter: drop-shadow(0 4px 16px rgba(0,0,0,0.4));
+  background: white;
+  border-radius: 16px;
+  padding: 8px;
 }
 .hero-brand-name {
   font-family: 'Playfair Display', serif;
-  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-size: clamp(2.2rem, 4.5vw, 3.8rem);
   font-weight: 900;
   letter-spacing: 0.04em;
   color: var(--white);
@@ -259,16 +265,17 @@ nav {
   color: var(--teal);
 }
 @media (max-width: 900px) {
-  .hero-logo-img { height: 90px; }
-  .hero-brand-name { font-size: clamp(1.6rem, 3.5vw, 2.5rem); }
+  .hero-logo-wrap { justify-content: center; }
+  .hero-logo-img { height: 130px; }
+  .hero-brand-name { font-size: clamp(1.8rem, 3.8vw, 2.8rem); }
 }
 @media (max-width: 560px) {
-  .hero-logo-img { height: 75px; }
-  .hero-brand-name { font-size: clamp(1.4rem, 3vw, 2rem); }
+  .hero-logo-img { height: 110px; }
+  .hero-brand-name { font-size: clamp(1.5rem, 3.2vw, 2.2rem); }
 }
 @media (max-width: 480px) {
-  .hero-logo-img { height: 65px; }
-  .hero-brand-name { font-size: 1.3rem; }
+  .hero-logo-img { height: 95px; }
+  .hero-brand-name { font-size: 1.4rem; }
 }
 
 
